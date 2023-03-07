@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     private Vector3 direction;
     public float gravity = -9.8f;
     public float strength = 5f;
+    public float tilt = 5f;
 
     private SpriteRenderer spriteRenderer;
     public Sprite[] sprites;
@@ -48,6 +49,10 @@ public class Player : MonoBehaviour
 
         direction.y += gravity * Time.deltaTime;
         transform.position += direction * Time.deltaTime;
+
+        Vector3 rotation = transform.eulerAngles;
+        rotation.z = direction.y * tilt;
+        transform.eulerAngles = rotation;
     }
 
     private void AnimateSprites()
