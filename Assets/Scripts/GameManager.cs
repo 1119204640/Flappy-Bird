@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 
         player = FindObjectOfType<Player>();
         spawner = FindObjectOfType<Spawner>();
-
+        gameOver.SetActive(false);
         Pause();
     }
 
